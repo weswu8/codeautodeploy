@@ -54,7 +54,7 @@ class CodeAutoDeploy(object):
         # timeout for the update thread , unit is seconds
         self.mThreadTimeout = 600
         # get the current time in seconds
-        self.current_seconds_time = lambda: int(round(time.time() * 1000*1000))
+        self.current_seconds_time = lambda: int(round(time.time()))
         # the start time of the thread
         self.mThreadStartTime = self.current_seconds_time()
 
@@ -104,23 +104,36 @@ class CodeAutoDeploy(object):
             self.change_config_by_key(self.mSection, CurrentVersion=self.mNewVersion)
             # update the current version, keep updating
             self.mCurrentVersion = self.mNewVersion
-            self.mLogger.info("Update the CurrentVersion: %s" % self.mCurrentVersion)
+            self.mLogger.info("Updated the CurrentVersion: %s" % self.mCurrentVersion)
 
 
 
     # get the latest version info from the remote package info url
     def get_latest_package_info(self):
         if self.mRemotePackageVer =='': return False
-        info_fp = urllib2.urlopen(self.mRemotePackageVer, None, 30)
+        # the retry number of the action
+        mMaxRetry = 3
+        # to avoid the time out error, should use retry loop to fetch the url
+        for retryCount in range(mMaxRetry):
+            try:
+                info_fp = urllib2.urlopen(self.mRemotePackageVer, None, 30)
+                break
+            except:
+                if retryCount < mMaxRetry - 1: continue
+                else:
+                    self.mLogger.warning("Failed to fetch the new version from:: %s" % self.mRemotePackageVer)
+                    return False
+
         info = info_fp.read()
         if info and len(info) != 0:
             self.mNewVersion = info
             info_fp.close()
-            self.mLogger.info("Find the new version: %s" % self.mNewVersion)
+            self.mLogger.info("Found the new version: %s" % self.mNewVersion)
             return True
         else:
             info_fp.close()
             return False
+
 
     # print the message to console
     def print_progress_bar(self,message):
@@ -130,13 +143,18 @@ class CodeAutoDeploy(object):
 
     # get the latest package from the remote package  url
     def download_latest_package(self):
+        # the retry number of the action
+        mMaxRetry = 3
         if self.mLocalPackageName == '': self.mLocalPackageName = self.mRemotePackageUrl.split('/')[-1]
         dest_file = self.mLocalPackageName
         try:
             data_file = urllib2.urlopen(self.mRemotePackageUrl, None, 30)
             data_size = int(dict(data_file.headers).get('content-length'))
         except urllib2.HTTPError, e:
-            self.mLogger.info("Not found package for uri: %s" % self.mRemotePackageUrl)
+            self.mLogger.warning("Not found package for uri: %s" % self.mRemotePackageUrl)
+            return False
+        except urllib2.URLError, t:
+            self.mLogger.warning("Time out for fetch the uri: %s" % self.mRemotePackageUrl)
             return False
 
         fp = open(dest_file, 'ab')
@@ -146,10 +164,22 @@ class CodeAutoDeploy(object):
         bar_length = 70  # print 70 '='
         speed_max_length = 11  # for example, 1023.99KB/s
 
-        self.mLogger.info("Package downloading...\nLength: %s bytes\nSaving to %s" % (data_size, dest_file))
+        self.mLogger.info("Package downloading... Length: %s bytes Saving to %s" % (data_size, dest_file))
         start_time = time.time()
         while read_size < data_size:
-            read_data = data_file.read(read_unit_size)
+            # to avoid the time out error, should use retry loop to fetch the url
+            for retryCount in range(mMaxRetry):
+                try:
+                    read_data = data_file.read(read_unit_size)
+                    break
+                except Exception, e:
+                    if retryCount < mMaxRetry - 1:
+                        continue
+                    else:
+                        self.mLogger.warn(
+                            "Time out for package downloading... Length: %s bytes of total %s bytes Saving to %s" % (
+                            read_size, data_size, dest_file))
+                        return False
             fp.write(read_data)
             read_size += len(read_data)
             progress_bar = '=' * int(float(read_size) / data_size * bar_length)
@@ -173,7 +203,15 @@ class CodeAutoDeploy(object):
                                download_speed + "B/s\r")
 
         self.print_progress_bar("\n")
-        self.mLogger.info("Download complete.")
+        # download is incomplete and should return false
+        if read_size < data_size:
+            self.mLogger.warn("Time out for package downloading... Length: %s bytes of total %s bytes Saving to %s" \
+                              % (read_size, data_size, dest_file))
+            fp.close()
+            data_file.close()
+            return False
+        # download is success
+        self.mLogger.info("Download complete. Length: %s bytes Saving to %s" % (data_size, dest_file))
         fp.close()
         data_file.close()
         return True
@@ -184,7 +222,7 @@ class CodeAutoDeploy(object):
       try:
         t.open(self.mServiceHost, self.mServicePort)
       except:
-        mLogger.info("The service: %s may be down!", self.mServiceName)
+        self.mLogger.info("The service: %s may be down!", self.mServiceName)
         return False
       t.close()
       self.mLogger.info("The service: %s is alive!", self.mServiceName)
@@ -211,7 +249,7 @@ class CodeAutoDeploy(object):
     def copyfile_from_src_to_dest(self,src, dest):
         if not os.path.exists(src):
             # Some bad symlink in the src
-            self.mLogger.warn('Cannot find file %s (bad symlink)', src)
+            self.mLogger.warn('Cannot find file %s ', src)
             return
         if os.path.exists(dest):
             self.mLogger.debug('File %s already exists', dest)
@@ -219,7 +257,7 @@ class CodeAutoDeploy(object):
         if not os.path.exists(os.path.dirname(dest)):
             self.mLogger.info('Creating parent directories for %s', os.path.dirname(dest))
             os.makedirs(os.path.dirname(dest))
-        self.mLogger.info('Copying %s to %s', src, dest)
+        self.mLogger.info('Copied file from %s to %s', src, dest)
         shutil.copy2(src, dest)
 
 
@@ -234,7 +272,7 @@ class CodeAutoDeploy(object):
     # update the service
     def update_the_service(self):
         # compare the current version and new version
-        self.get_latest_package_info()
+        if not self.get_latest_package_info(): return
         if long(self.mCurrentVersion) == 0 or long(self.mNewVersion) == 0 or long(self.mCurrentVersion) == long(self.mNewVersion): return
         # download the new package
         if self.download_latest_package() == False: return
@@ -266,30 +304,43 @@ class CodeAutoDeploy(object):
         self.mUpdateServiceThread = threading.Thread(target=self.update_the_service)
         self.mUpdateServiceThread.daemon = True
         self.mUpdateServiceThread.start()
-        self.mLogger.info('Start the service update thread: %s', self.mUpdateServiceThread.getName())
+        self.mLogger.info('Started the App update thread: %s', self.mUpdateServiceThread.getName())
 
     # define the main logic
     def run(self):
         # initilize the logger
         self.init_the_logger()
 
-        # read the configuration
-        self.read_cofig_file_to_memory()
-
         # log the service start
-        self.mLogger.info('Start the service: %s', self.mServiceName)
+        self.mLogger.info('Start the code auto deploy service, PID: %s', str(os.getpid()))
 
         # enter the infinite loop
         while True:
+            # read the configuration
+            self.read_cofig_file_to_memory()
+
             # keep the service alive
             self.keep_the_service_alive()
-            # check the current running thread of service update
-            if not self.mUpdateServiceThread is None:
-                if self.mUpdateServiceThread.isAlive() == True:
-                    if self.current_seconds_time() - self.mThreadStartTime < self.mThreadTimeout:continue
-                    else: self.mUpdateServiceThread.join()
-            # run the update service
-            self.update_the_service()
-            # hava a sleep
-            time.sleep(60)
 
+            # check the current running thread of service update
+            if self.mUpdateServiceThread:
+                if self.mUpdateServiceThread.isAlive():
+                    if self.current_seconds_time() - self.mThreadStartTime < self.mThreadTimeout:
+                        self.mLogger.info('Thread: %s is alive!', self.mUpdateServiceThread.getName())
+                        # hava a sleep
+                        time.sleep(5)
+                        continue
+                    else:
+                        self.mLogger.warn('Time out for the App update thread: %s', self.mUpdateServiceThread.getName())
+                        self.mUpdateServiceThread.join()
+
+            # run the app update thread
+            self.start_update_service_thread()
+
+            # hava a sleep
+            time.sleep(20)
+
+
+# start the code auto deploy tool
+codeAutoDeploy = CodeAutoDeploy()
+codeAutoDeploy.run()
