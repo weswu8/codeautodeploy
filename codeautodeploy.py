@@ -369,8 +369,4 @@ class CodeAutoDeploy(object):
 
 # start the code auto deploy tool
 codeAutoDeploy = CodeAutoDeploy()
-#codeAutoDeploy.run()
-codeAutoDeploy.init_the_logger()
-codeAutoDeploy.read_cofig_file_to_memory()
-print codeAutoDeploy.uptdate_new_package_md5()
-print codeAutoDeploy.check_file_is_existing()
+codeAutoDeploy.run()
