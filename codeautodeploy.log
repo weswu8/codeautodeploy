@@ -1,0 +1,126 @@
+2016-08-06 17:47:09,594 - ServiceAutoUpdate - INFO - Package downloading...
+Length: 14 bytes
+Saving to EurekaServer-0.0.1-SNAPSHOT.jar.info
+2016-08-06 17:50:34,052 - ServiceAutoUpdate - INFO - Package downloading...
+Length: 33228061 bytes
+Saving to EurekaServer-0.0.1-SNAPSHOT.jar.info
+2016-08-06 17:59:44,715 - ServiceAutoUpdate - INFO - Package downloading...
+Length: 33228061 bytes
+Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-06 18:04:44,903 - ServiceAutoUpdate - INFO - Package downloading...
+Length: 33228061 bytes
+Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-06 18:05:28,729 - ServiceAutoUpdate - INFO - Package downloading...
+Length: 33228061 bytes
+Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-06 18:08:55,982 - ServiceAutoUpdate - INFO - Package downloading...
+Length: 5387876 bytes
+Saving to master.zip
+2016-08-06 18:16:36,721 - ServiceAutoUpdate - INFO - Package downloading...
+Length: 5387876 bytes
+Saving to master.zip
+2016-08-06 18:20:37,344 - ServiceAutoUpdate - INFO - Package downloading...
+Length: 5387876 bytes
+Saving to master.zip
+2016-08-06 18:23:32,408 - ServiceAutoUpdate - INFO - Package downloading...
+Length: 5387876 bytes
+Saving to master.zip
+2016-08-06 18:28:20,919 - ServiceAutoUpdate - INFO - Download complete.
+2016-08-06 22:25:21,504 - ServiceAutoUpdate - INFO - The service may be down!
+2016-08-06 22:25:31,509 - ServiceAutoUpdate - INFO - The service may be down!
+2016-08-06 22:25:41,511 - ServiceAutoUpdate - INFO - The service may be down!
+2016-08-06 22:25:51,517 - ServiceAutoUpdate - INFO - The service may be down!
+2016-08-06 22:26:01,524 - ServiceAutoUpdate - INFO - The service may be down!
+2016-08-06 22:26:11,525 - ServiceAutoUpdate - INFO - Executing: ['sudo', 'service', 'eurekaserver', 'stop']
+2016-08-06 22:26:16,574 - ServiceAutoUpdate - INFO - Executing: ['sudo', 'service', 'eurekaserver', 'start']
+2016-08-06 22:28:42,136 - ServiceAutoUpdate - INFO - The service is alive!
+2016-08-06 22:29:55,732 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:30:46,718 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:30:52,963 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:30:54,061 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:30:54,801 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:30:55,786 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:30:56,500 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:30:57,200 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:31:06,717 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:31:07,673 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:31:08,620 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:31:09,539 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:31:46,502 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:32:22,532 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:34:26,740 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015547
+2016-08-06 22:38:25,933 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015549
+2016-08-06 22:38:32,995 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015549
+2016-08-06 22:38:34,838 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015549
+2016-08-06 22:38:36,132 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015549
+2016-08-06 22:38:37,173 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015549
+2016-08-06 22:38:39,833 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015549
+2016-08-06 22:38:40,846 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015549
+2016-08-06 22:39:31,089 - ServiceAutoUpdate - INFO - Update the CurrentVersion: 20160806015549
+2016-08-06 22:46:18,257 - ServiceAutoUpdate - INFO - Copying to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-06 22:47:22,938 - ServiceAutoUpdate - INFO - Copying EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-06 22:49:05,626 - ServiceAutoUpdate - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-06 22:50:03,132 - ServiceAutoUpdate - INFO - Start the service update thread: Thread-1
+2016-08-06 22:53:10,370 - ServiceAutoUpdate - INFO - Start the service update thread: Thread-1
+2016-08-06 22:53:52,734 - ServiceAutoUpdate - INFO - Start the service update thread: Thread-1
+2016-08-06 22:54:05,049 - ServiceAutoUpdate - INFO - Find the new version: 20160805151633
+2016-08-06 22:54:07,471 - ServiceAutoUpdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-06 22:55:53,793 - ServiceAutoUpdate - INFO - Start the service update thread: Thread-1
+2016-08-06 22:56:00,761 - ServiceAutoUpdate - INFO - Find the new version: 20160805151633
+2016-08-06 22:56:02,194 - ServiceAutoUpdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-06 22:56:02,194 - ServiceAutoUpdate - INFO - Package downloading...
+Length: 0 bytes
+Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-06 22:56:02,194 - ServiceAutoUpdate - INFO - Download complete.
+2016-08-06 22:58:06,286 - ServiceAutoUpdate - INFO - Start the service update thread: Thread-1
+2016-08-06 22:58:44,113 - ServiceAutoUpdate - INFO - Start the service update thread: Thread-1
+2016-08-06 22:58:46,755 - ServiceAutoUpdate - INFO - Find the new version: 20160805151633
+2016-08-06 22:58:53,722 - ServiceAutoUpdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-06 22:58:53,722 - ServiceAutoUpdate - INFO - Package downloading...
+Length: 0 bytes
+Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-06 22:58:53,722 - ServiceAutoUpdate - INFO - Download complete.
+2016-08-06 23:03:04,751 - ServiceAutoUpdate - INFO - Start the service update thread: Thread-1
+2016-08-06 23:03:06,305 - ServiceAutoUpdate - INFO - Find the new version: 20160805151633
+2016-08-06 23:03:25,142 - ServiceAutoUpdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-06 23:04:55,949 - ServiceAutoUpdate - INFO - Start the service update thread: Thread-1
+2016-08-06 23:05:13,902 - ServiceAutoUpdate - INFO - Find the new version: 20160805151633
+2016-08-06 23:05:27,154 - ServiceAutoUpdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-07 11:03:53,356 - ServiceAutoUpdate - INFO - The service is alive!
+2016-08-07 11:04:54,299 - ServiceAutoUpdate - INFO - The service is alive!
+2016-08-07 11:05:00,064 - ServiceAutoUpdate - INFO - Find the new version: 20160805151633
+2016-08-07 11:05:01,551 - ServiceAutoUpdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-07 11:06:01,555 - ServiceAutoUpdate - INFO - The service is alive!
+2016-08-07 11:06:03,915 - ServiceAutoUpdate - INFO - Find the new version: 20160805151633
+2016-08-07 11:06:05,293 - ServiceAutoUpdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-07 11:07:05,302 - ServiceAutoUpdate - INFO - The service is alive!
+2016-08-07 11:07:12,114 - ServiceAutoUpdate - INFO - Find the new version: 20160805151633
+2016-08-07 11:07:13,685 - ServiceAutoUpdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-07 11:08:13,692 - ServiceAutoUpdate - INFO - The service is alive!
+2016-08-07 11:08:17,153 - ServiceAutoUpdate - INFO - Find the new version: 20160805151633
+2016-08-07 11:08:20,009 - ServiceAutoUpdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-07 11:09:20,013 - ServiceAutoUpdate - INFO - The service is alive!
+2016-08-07 11:23:13,040 - serviceautoupdate - INFO - The service is alive!
+2016-08-07 11:23:17,662 - serviceautoupdate - INFO - Find the new version: 20160805151633
+2016-08-07 11:23:21,355 - serviceautoupdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-07 11:24:21,359 - serviceautoupdate - INFO - The service is alive!
+2016-08-07 11:24:23,134 - serviceautoupdate - INFO - Find the new version: 20160805151633
+2016-08-07 11:24:24,525 - serviceautoupdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-07 11:25:24,529 - serviceautoupdate - INFO - The service is alive!
+2016-08-07 11:25:32,812 - serviceautoupdate - INFO - Find the new version: 20160805151633
+2016-08-07 11:25:34,380 - serviceautoupdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-07 11:26:34,385 - serviceautoupdate - INFO - The service is alive!
+2016-08-07 11:26:36,805 - serviceautoupdate - INFO - Find the new version: 20160805151633
+2016-08-07 11:26:38,380 - serviceautoupdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-07 11:27:38,384 - serviceautoupdate - INFO - The service is alive!
+2016-08-07 11:27:42,792 - serviceautoupdate - INFO - Find the new version: 20160805151633
+2016-08-07 11:27:44,113 - serviceautoupdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-07 11:28:44,117 - serviceautoupdate - INFO - The service is alive!
+2016-08-07 11:28:46,178 - serviceautoupdate - INFO - Find the new version: 20160805151633
+2016-08-07 11:28:49,602 - serviceautoupdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-07 11:29:49,607 - serviceautoupdate - INFO - The service is alive!
+2016-08-07 11:40:34,457 - serviceautoupdate - INFO - Start the service: eurekaserver
+2016-08-07 11:40:34,469 - serviceautoupdate - INFO - The service:eurekaserver is alive!
+2016-08-07 11:40:36,647 - serviceautoupdate - INFO - Find the new version: 20160805151633
+2016-08-07 11:40:42,277 - serviceautoupdate - INFO - Not found package for uri: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.
+2016-08-07 11:41:42,282 - serviceautoupdate - INFO - The service:eurekaserver is alive!
