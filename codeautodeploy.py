@@ -14,7 +14,7 @@
 ########################################################################
 
 import os, time, re, logging, ConfigParser, urllib2
-import subprocess,shutil
+import subprocess,shutil,hashlib
 import sys,telnetlib
 import threading
 # the main class for the function
@@ -39,6 +39,8 @@ class CodeAutoDeploy(object):
         self.mServicePort= ''
         # the current version of the running package
         self.mCurrentVersion = 0
+        # the md5 digest of the new package, use this avoid the duplicated download
+        self.mNewPackMD5 = 0
         # the new version no
         self.mNewVersion = 0
         # the global logger object
@@ -57,6 +59,9 @@ class CodeAutoDeploy(object):
         self.current_seconds_time = lambda: int(round(time.time()))
         # the start time of the thread
         self.mThreadStartTime = self.current_seconds_time()
+        # init the config handler
+        self.mConfig = ConfigParser.ConfigParser()
+        self.mConfig.read(self.mConfFile)
 
         #===========the variable for the daemon process ==========#
 
@@ -79,23 +84,20 @@ class CodeAutoDeploy(object):
     # update the value for the specific key
     # **keyv : AutoLogin='False'
     def change_config_by_key(self,section, **keyv):
-        mConfig = ConfigParser.ConfigParser()
-        mConfig.read(self.mConfFile)
-        [mConfig.set(section, key, keyv[key]) for key in keyv if mConfig.has_option(section, key)]
-        mConfig.write(open(self.mConfFile, 'w'))
+        [self.mConfig.set(section, key, keyv[key]) for key in keyv if self.mConfig.has_option(section, key)]
+        self.mConfig.write(open(self.mConfFile, 'w'))
 
 
     # read and update the global variable in memory
     def read_cofig_file_to_memory(self):
-        mConfig = ConfigParser.SafeConfigParser()
-        mConfig.read(self.mConfFile)
-        self.mRemotePackageUrl = mConfig.get(self.mSection, 'RemotePackageUrl')
-        self.mRemotePackageVer = mConfig.get(self.mSection, 'RemotePackageVer')
-        self.mLocalInstallationPath = mConfig.get(self.mSection, 'LocalInstallationPath')
-        self.mLocalPackageName = mConfig.get(self.mSection, 'LocalPackageName')
-        self.mServiceName = mConfig.get(self.mSection, 'ServiceName')
-        self.mServicePort = mConfig.get(self.mSection, 'ServicePort')
-        self.mCurrentVersion = mConfig.get(self.mSection, 'CurrentVersion')
+        self.mRemotePackageUrl = self.mConfig.get(self.mSection, 'RemotePackageUrl')
+        self.mRemotePackageVer = self.mConfig.get(self.mSection, 'RemotePackageVer')
+        self.mLocalInstallationPath = self.mConfig.get(self.mSection, 'LocalInstallationPath')
+        self.mLocalPackageName = self.mConfig.get(self.mSection, 'LocalPackageName')
+        self.mServiceName = self.mConfig.get(self.mSection, 'ServiceName')
+        self.mServicePort = self.mConfig.get(self.mSection, 'ServicePort')
+        self.mCurrentVersion = self.mConfig.get(self.mSection, 'CurrentVersion')
+        self.mNewPackMD5 = self.mConfig.get(self.mSection, 'NewPackMD5')
 
 
     # update the version to the config file
@@ -106,7 +108,11 @@ class CodeAutoDeploy(object):
             self.mCurrentVersion = self.mNewVersion
             self.mLogger.info("Updated the CurrentVersion: %s" % self.mCurrentVersion)
 
-
+    # update md5 value of the new package
+    def uptdate_new_package_md5(self):
+        self.mNewPackMD5 = str(os.path.getsize(self.mLocalPackageName))
+        self.change_config_by_key(self.mSection, newpackmd5=self.mNewPackMD5)
+        self.mLogger.info("Updated the MD5 to: %s" % self.mNewPackMD5)
 
     # get the latest version info from the remote package info url
     def get_latest_package_info(self):
@@ -128,12 +134,22 @@ class CodeAutoDeploy(object):
         if info and len(info) != 0:
             self.mNewVersion = info
             info_fp.close()
-            self.mLogger.info("Found the new version: %s" % self.mNewVersion)
+            self.mLogger.info("Found the new version: %s, md5: %s" % self.mNewVersion)
             return True
         else:
             info_fp.close()
             return False
 
+    # check the downloaded file, avoid the duplicated download
+    def check_file_is_existing(self):
+        # if file does not exists, return false
+        if not os.path.isfile(self.mLocalPackageName): return False
+        # if file does exist, should compare them
+        self.mNewPackMD5 = long(self.mConfig.get(self.mSection, 'newpackmd5'))
+        if long(os.path.getsize(self.mLocalPackageName)) != long(self.mNewPackMD5):
+            self.mLogger.info("The file is existing: %s, md5: %s" % self.mLocalPackageName)
+            return False
+        return True
 
     # print the message to console
     def print_progress_bar(self,message):
@@ -214,6 +230,8 @@ class CodeAutoDeploy(object):
         self.mLogger.info("Download complete. Length: %s bytes Saving to %s" % (data_size, dest_file))
         fp.close()
         data_file.close()
+        # updathe the file size in config file
+        self.uptdate_new_package_md5()
         return True
 
     #  Check whether the given host:port is accessable or not.
@@ -274,15 +292,22 @@ class CodeAutoDeploy(object):
         # compare the current version and new version
         if not self.get_latest_package_info(): return
         if long(self.mCurrentVersion) == 0 or long(self.mNewVersion) == 0 or long(self.mCurrentVersion) == long(self.mNewVersion): return
-        # download the new package
-        if self.download_latest_package() == False: return
+
+        # check whether the file is existing or not
+        if not self.check_file_is_existing():
+            # download the new package
+            if not self.download_latest_package(): return
+
         # stop the service
         self.stop_the_service()
+
         # copy downloaded file to dest path
         mDest = self.mLocalInstallationPath+'/'+self.mLocalPackageName
         self.copyfile_from_src_to_dest(self.mLocalPackageName, mDest)
+
         # make it executable
         self.make_file_executable(mDest)
+
         # start the service
         self.start_the_service()
 
