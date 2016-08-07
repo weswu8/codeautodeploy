@@ -134,7 +134,7 @@ class CodeAutoDeploy(object):
         if info and len(info) != 0:
             self.mNewVersion = info
             info_fp.close()
-            self.mLogger.info("Found the new version: %s, md5: %s" % self.mNewVersion)
+            self.mLogger.info("Found the new version: %s" % self.mNewVersion)
             return True
         else:
             info_fp.close()
@@ -147,8 +147,9 @@ class CodeAutoDeploy(object):
         # if file does exist, should compare them
         self.mNewPackMD5 = long(self.mConfig.get(self.mSection, 'newpackmd5'))
         if long(os.path.getsize(self.mLocalPackageName)) != long(self.mNewPackMD5):
-            self.mLogger.info("The file is existing: %s, md5: %s" % self.mLocalPackageName)
+            self.mLogger.info("The file is not existing: %s" % self.mLocalPackageName)
             return False
+        self.mLogger.info("The file is existing: %s, md5: %s" % (self.mLocalPackageName, self.mNewPackMD5))
         return True
 
     # print the message to console
@@ -368,4 +369,8 @@ class CodeAutoDeploy(object):
 
 # start the code auto deploy tool
 codeAutoDeploy = CodeAutoDeploy()
-codeAutoDeploy.run()
+#codeAutoDeploy.run()
+codeAutoDeploy.init_the_logger()
+codeAutoDeploy.read_cofig_file_to_memory()
+print codeAutoDeploy.uptdate_new_package_md5()
+print codeAutoDeploy.check_file_is_existing()
