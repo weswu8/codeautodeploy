@@ -318,7 +318,7 @@ class CodeAutoDeploy(object):
         for mCount in range(0,self.mThreshold):
             if self.check_service_status() == False : mUnhealth +=1
             else : break
-            time.sleep(10)
+            time.sleep(30)
         if mUnhealth == self.mThreshold:
             self.stop_the_service()
             self.start_the_service()
