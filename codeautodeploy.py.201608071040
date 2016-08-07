@@ -17,20 +17,18 @@ import os, time, re, logging, ConfigParser, urllib2
 import subprocess,shutil
 import sys,telnetlib
 import threading
-from daemon import Daemon
-
 # the main class for the function
-class CodeAutoDeploy(Daemon):
+class CodeAutoDeploy(object):
     #==================define the global variables ========================
-    def __init__(self,pidfile):
+    def __init__(self):
         # the url of remote package, such as: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar
         self.mRemotePackageUrl = ''
         # the file that contains the version info of the package. such as: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.inof
         self.mRemotePackageVer = ''
         # the configuration file for the tools
-        self.mConfFile = 'ServiceAutoUpdate.cfg'
+        self.mConfFile = 'codeautodeploy.cfg'
         # the log file for the tools
-        self.mLogFile = 'ServiceAutoUpdate.log'
+        self.mLogFile = 'codeautodeploy.log'
         # the directory that contains the installed package
         self.mLocalInstallationPath = ''
         # the package name in local environment
@@ -46,13 +44,13 @@ class CodeAutoDeploy(Daemon):
         # the global logger object
         self.mLogger = ''
         # the configuration section
-        self.mSection = 'ServiceAutoUpdate'
+        self.mSection = 'codeautodeploy'
         # the name of the service
         self.mServiceName =''
         # the threshold that indicate the service is unhealth
         self.mThreshold =5
         # the thread for the service update
-        self.mUpdateServiceThread = ''
+        self.mUpdateServiceThread = None
         # timeout for the update thread , unit is seconds
         self.mThreadTimeout = 600
         # get the current time in seconds
@@ -60,12 +58,14 @@ class CodeAutoDeploy(Daemon):
         # the start time of the thread
         self.mThreadStartTime = self.current_seconds_time()
 
+        #===========the variable for the daemon process ==========#
+
 
     #==================Function Define =====================================
     # initialize the logger object
     def init_the_logger(self):
         # create logger with log file
-        self.mLogger = logging.getLogger('ServiceAutoUpdate')
+        self.mLogger = logging.getLogger(self.mSection)
         self.mLogger.setLevel(logging.INFO)
         mLoggerFileHandler = logging.FileHandler(self.mLogFile)
         mLoggerFileHandler.setLevel(logging.INFO)
@@ -184,10 +184,10 @@ class CodeAutoDeploy(Daemon):
       try:
         t.open(self.mServiceHost, self.mServicePort)
       except:
-        mLogger.info("The service may be down!")
+        mLogger.info("The service: %s may be down!", self.mServiceName)
         return False
       t.close()
-      self.mLogger.info("The service is alive!")
+      self.mLogger.info("The service: %s is alive!", self.mServiceName)
       return True
 
 
@@ -276,6 +276,8 @@ class CodeAutoDeploy(Daemon):
         # read the configuration
         self.read_cofig_file_to_memory()
 
+        # log the service start
+        self.mLogger.info('Start the service: %s', self.mServiceName)
 
         # enter the infinite loop
         while True:
@@ -291,7 +293,3 @@ class CodeAutoDeploy(Daemon):
             # hava a sleep
             time.sleep(60)
 
-
-#======================begin the main funtion===========================#
-codeAutoDeploy = CodeAutoDeploy()
-codeAutoDeploy.run
