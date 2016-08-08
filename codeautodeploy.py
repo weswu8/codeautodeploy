@@ -141,15 +141,15 @@ class CodeAutoDeploy(object):
             return False
 
     # check the downloaded file, avoid the duplicated download
-    def check_file_is_existing(self):
+    def check_file_is_existing(self, mTargetFile):
         # if file does not exists, return false
-        if not os.path.isfile(self.mLocalPackageName): return False
+        if not os.path.isfile(mTargetFile): return False
         # if file does exist, should compare them
         self.mNewPackMD5 = long(self.mConfig.get(self.mSection, 'newpackmd5'))
-        if long(os.path.getsize(self.mLocalPackageName)) != long(self.mNewPackMD5):
-            self.mLogger.info("The file is not existing: %s" % self.mLocalPackageName)
+        if long(os.path.getsize(mTargetFile)) != long(self.mNewPackMD5):
+            self.mLogger.info("The file is not existing: %s" % mTargetFile)
             return False
-        self.mLogger.info("The file is existing: %s, md5: %s" % (self.mLocalPackageName, self.mNewPackMD5))
+        self.mLogger.info("The file is existing: %s, md5: %s" % (mTargetFile, self.mNewPackMD5))
         return True
 
     # print the message to console
@@ -295,7 +295,7 @@ class CodeAutoDeploy(object):
         if long(self.mCurrentVersion) == 0 or long(self.mNewVersion) == 0 or long(self.mCurrentVersion) == long(self.mNewVersion): return
 
         # check whether the file is existing or not
-        if not self.check_file_is_existing():
+        if not self.check_file_is_existing(self.mLocalPackageName):
             # download the new package
             if not self.download_latest_package(): return
 
@@ -304,7 +304,8 @@ class CodeAutoDeploy(object):
 
         # copy downloaded file to dest path
         mDest = self.mLocalInstallationPath+'/'+self.mLocalPackageName
-        self.copyfile_from_src_to_dest(self.mLocalPackageName, mDest)
+        if not self.check_file_is_existing(mDest):
+            self.copyfile_from_src_to_dest(self.mLocalPackageName, mDest)
 
         # make it executable
         self.make_file_executable(mDest)
