@@ -55,3 +55,12 @@
 2016-08-07 18:39:55,321 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 8388608
 2016-08-07 18:39:56,220 - codeautodeploy - INFO - Updated the MD5 to: 8388608
 2016-08-07 18:39:56,220 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 8388608
+2016-08-08 16:52:01,181 - codeautodeploy - INFO - Start the code auto deploy service, PID: 69244
+2016-08-08 16:52:01,182 - codeautodeploy - INFO - The service: eurekaserver is alive!
+2016-08-08 16:52:01,189 - codeautodeploy - INFO - Started the App update thread: Thread-1
+2016-08-08 16:52:04,470 - codeautodeploy - INFO - Found the new version: 20160808064223
+2016-08-08 16:52:04,470 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 8388608
+2016-08-08 16:52:04,470 - codeautodeploy - INFO - Executing: ['sudo', 'service', 'eurekaserver', 'stop']
+2016-08-08 17:08:30,762 - codeautodeploy - INFO - Start the code auto deploy service, PID: 69324
+2016-08-08 17:08:30,763 - codeautodeploy - INFO - The service: eurekaserver is alive!
+2016-08-08 17:08:30,770 - codeautodeploy - INFO - Started the App update thread: Thread-1
