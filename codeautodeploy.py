@@ -66,6 +66,8 @@ class CodeAutoDeploy(object):
         self.mStartServiceCmd = ''
         # stop service command
         self.mStopServiceCmd = ''
+        # set the level of log
+        self.mLogLevel = '';
 
         #===========the variable for the daemon process ==========#
 
@@ -77,7 +79,7 @@ class CodeAutoDeploy(object):
         self.mLogger = logging.getLogger(self.mSection)
         self.mLogger.setLevel(logging.INFO)
         mLoggerFileHandler = logging.FileHandler(self.mLogFile)
-        mLoggerFileHandler.setLevel(logging.INFO)
+        mLoggerFileHandler.setLevel(self.mLogLevel)
         # create formatter and add it to the handlers
         mLogFormatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         mLoggerFileHandler.setFormatter(mLogFormatter)
@@ -104,6 +106,7 @@ class CodeAutoDeploy(object):
         self.mNewPackMD5 = self.mConfig.get(self.mSection, 'NewPackMD5')
         self.mStartServiceCmd = self.mConfig.get(self.mSection, 'StartServiceCmd')
         self.mStopServiceCmd = self.mConfig.get(self.mSection, 'StopServiceCmd')
+        self.mLogLevel = self.mConfig.get(self.mSection, 'LogLevel')
 
 
 
@@ -294,27 +297,37 @@ class CodeAutoDeploy(object):
 
     # update the service
     def update_the_service(self):
+        # log the begin of the process
+        self.mLogger.info('Update is starting ...')
+
         # compare the current version and new version
+        self.mLogger.info('Compare the version,old: %s  new: %s', self.mCurrentVersion, self.mNewVersion)
         if not self.get_latest_package_info(): return
         if long(self.mCurrentVersion) == 0 or long(self.mNewVersion) == 0 or long(self.mCurrentVersion) == long(self.mNewVersion): return
 
         # check whether the file is existing or not
+        self.mLogger.info('Check the new package: %s', self.mLocalPackageName)
         if not self.check_file_is_existing(self.mLocalPackageName):
             # download the new package
             if not self.download_latest_package(): return
 
         # stop the service
+        self.mLogger.info('Stop the service: %s', self.mStopServiceCmd)
         self.run_service_cmd(self.mStopServiceCmd)
+
 
         # copy downloaded file to dest path
         mDest = self.mLocalInstallationPath+'/'+self.mLocalPackageName
+        self.mLogger.info('Save file from %s to %s', self.mLocalPackageName, mDest)
         if not self.check_file_is_existing(mDest):
             self.copyfile_from_src_to_dest(self.mLocalPackageName, mDest)
 
         # make it executable
+        self.mLogger.info('Make the file executable: %s', mDest)
         self.make_file_executable(mDest)
 
         # start the service
+        self.mLogger.info('Start the service: %s', self.mStartServiceCmd)
         self.run_service_cmd(self.mStartServiceCmd)
 
     # keep the service alive
@@ -338,6 +351,10 @@ class CodeAutoDeploy(object):
 
     # define the main logic
     def run(self):
+
+        # read the configuration
+        self.read_cofig_file_to_memory()
+
         # initilize the logger
         self.init_the_logger()
 
@@ -346,7 +363,7 @@ class CodeAutoDeploy(object):
 
         # enter the infinite loop
         while True:
-            # read the configuration
+            #  refresh the configuration
             self.read_cofig_file_to_memory()
 
             # keep the service alive
