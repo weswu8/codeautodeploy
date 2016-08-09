@@ -17,6 +17,8 @@ import os, time, re, logging, ConfigParser, urllib2
 import subprocess,shutil,hashlib
 import sys,telnetlib
 import threading
+
+
 # the main class for the function
 class CodeAutoDeploy(object):
     #==================define the global variables ========================
@@ -59,40 +61,28 @@ class CodeAutoDeploy(object):
         self.current_seconds_time = lambda: int(round(time.time()))
         # the start time of the thread
         self.mThreadStartTime = self.current_seconds_time()
-        # init the config handler
-        self.mConfig = ConfigParser.ConfigParser()
-        self.mConfig.read(self.mConfFile)
+        # the config handler
+        self.mConfig = ''
         # start service command
         self.mStartServiceCmd = ''
         # stop service command
         self.mStopServiceCmd = ''
         # set the level of log
         self.mLogLevel = '';
+        # define the log level mapping
+        self.mLogLevelMapper = {'NOTSET': 0, 'DEBUG': 10, 'INFO': 20, 'WARNING': 30, 'ERROR': 40, 'CRITICAL': 50}
 
-        #===========the variable for the daemon process ==========#
+        #===========run the init function ==========#
+        self.init_the_config_handler()
+        self.read_cofig_file_to_memory()
+        self.init_the_logger_handler()
 
 
     #==================Function Define =====================================
-    # initialize the logger object
-    def init_the_logger(self):
-        # create logger with log file
-        self.mLogger = logging.getLogger(self.mSection)
-        self.mLogger.setLevel(logging.INFO)
-        mLoggerFileHandler = logging.FileHandler(self.mLogFile)
-        mLoggerFileHandler.setLevel(self.mLogLevel)
-        # create formatter and add it to the handlers
-        mLogFormatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        mLoggerFileHandler.setFormatter(mLogFormatter)
-        # add the handlers to the logger
-        self.mLogger.addHandler(mLoggerFileHandler)
-
-
-    # update the value for the specific key
-    # **keyv : AutoLogin='False'
-    def change_config_by_key(self,section, **keyv):
-        [self.mConfig.set(section, key, keyv[key]) for key in keyv if self.mConfig.has_option(section, key)]
-        self.mConfig.write(open(self.mConfFile, 'w'))
-
+    # init the config handler
+    def init_the_config_handler(self):
+        self.mConfig = ConfigParser.ConfigParser()
+        self.mConfig.read(self.mConfFile)
 
     # read and update the global variable in memory
     def read_cofig_file_to_memory(self):
@@ -109,10 +99,53 @@ class CodeAutoDeploy(object):
         self.mLogLevel = self.mConfig.get(self.mSection, 'LogLevel')
 
 
+    # initialize the logger object
+    def init_the_logger_handler(self):
+        # create logger with log file
+        self.mLogger = logging.getLogger(self.mSection)
+        self.mLogger.setLevel(int(self.mLogLevelMapper[self.mLogLevel]))
+        mLoggerFileHandler = logging.FileHandler(self.mLogFile)
+        mLoggerFileHandler.setLevel(int(self.mLogLevelMapper[self.mLogLevel]))
+        # create formatter and add it to the handlers
+        mLogFormatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        mLoggerFileHandler.setFormatter(mLogFormatter)
+        # add the handlers to the logger
+        self.mLogger.addHandler(mLoggerFileHandler)
+
+
+    # update the value for the specific key
+    # **keyv : AutoLogin='False'
+    def change_config_by_key(self,section, **keyv):
+        [self.mConfig.set(section, key, keyv[key]) for key in keyv if self.mConfig.has_option(section, key)]
+        self.mConfig.write(open(self.mConfFile, 'w'))
+
+
+
+    # Run a command on the local system. edit from fabric
+    def run_shell_command(self, command, shell=None):
+        dev_null = None
+        mSuccessed = False
+        try:
+            cmd_arg = command
+            p = subprocess.Popen(cmd_arg, shell=True, stdout=dev_null,
+                                 stderr=dev_null, executable=shell,
+                                 close_fds=True)
+            (stdout, stderr) = p.communicate()
+        finally:
+            if dev_null is not None:
+                dev_null.close()
+        # Handle error condition (deal with stdout being None, too)
+        if p.returncode not in [0]:
+            self.mLogger.warn('run_shell_command() encountered an error (return code %s) while executing %s . msg: %s' % (p.returncode, command, stderr))
+            return mSuccessed
+        # log the success result
+        mSuccessed = True
+        self.mLogger.info('run_shell_command() is successful (return code %s) while executing %s. msg: %s' % (p.returncode, command, stdout))
+        return mSuccessed
 
     # update the version to the config file
-    def uptdat_current_verion_value(self):
-        if  long(self.mCurrentVersion) != 0 and long(self.mNewVersion) != 0 and long(self.mCurrentVersion) < long(self.mNewVersion):
+    def uptdate_current_verion_value(self):
+        if  long(self.mNewVersion) != 0 and long(self.mCurrentVersion) < long(self.mNewVersion):
             self.change_config_by_key(self.mSection, CurrentVersion=self.mNewVersion)
             # update the current version, keep updating
             self.mCurrentVersion = self.mNewVersion
@@ -270,6 +303,16 @@ class CodeAutoDeploy(object):
               pass  # executable not found
           time.sleep(30)
 
+    # create the folder structure for the target file
+    # pathurl : /raw/aax/dd/sample.jar
+    def create_setup_directory(self, pathurl):
+        mDirectory = os.path.split(pathurl)[0]
+        if os.path.exists(mDirectory) is not True:
+            try:
+                os.makedirs(mDirectory)
+            finally:
+                self.mLogger.info('Created the installation path: %s' % pathurl)
+                return mDirectory
 
     # copy the file from src to dest, the dest should be /dir/to/file.jar
     def copyfile_from_src_to_dest(self,src, dest):
@@ -295,42 +338,84 @@ class CodeAutoDeploy(object):
             os.chmod(fn, newmode)
             self.mLogger.info('Changed mode of %s to %s', fn, oct(newmode))
 
-    # update the service
-    def update_the_service(self):
+    # install the appliation
+    def install_the_application(self):
         # log the begin of the process
-        self.mLogger.info('Update is starting ...')
+        self.mLogger.info('Installation is starting ...')
 
-        # compare the current version and new version
-        self.mLogger.info('Compare the version,old: %s  new: %s', self.mCurrentVersion, self.mNewVersion)
+        # get the current version
+        self.mLogger.info('Geting the version ...')
         if not self.get_latest_package_info(): return
-        if long(self.mCurrentVersion) == 0 or long(self.mNewVersion) == 0 or long(self.mCurrentVersion) == long(self.mNewVersion): return
 
         # check whether the file is existing or not
-        self.mLogger.info('Check the new package: %s', self.mLocalPackageName)
+        self.mLogger.info('Check the installation package: %s', self.mLocalPackageName)
         if not self.check_file_is_existing(self.mLocalPackageName):
             # download the new package
             if not self.download_latest_package(): return
 
-        # stop the service
-        self.mLogger.info('Stop the service: %s', self.mStopServiceCmd)
-        self.run_service_cmd(self.mStopServiceCmd)
-
+        # create the directory for the installation path
+        mDest = self.mLocalInstallationPath+'/'+self.mLocalPackageName
+        self.mLogger.info('Creating the installation path: %s', mDest)
+        self.create_setup_directory(mDest)
 
         # copy downloaded file to dest path
-        mDest = self.mLocalInstallationPath+'/'+self.mLocalPackageName
-        self.mLogger.info('Save file from %s to %s', self.mLocalPackageName, mDest)
+        self.mLogger.info('Copying file from %s to %s', self.mLocalPackageName, mDest)
         if not self.check_file_is_existing(mDest):
             self.copyfile_from_src_to_dest(self.mLocalPackageName, mDest)
 
-        # make it executable
-        self.mLogger.info('Make the file executable: %s', mDest)
-        self.make_file_executable(mDest)
+            # make it executable
+            self.mLogger.info('Making the file executable: %s', mDest)
+            self.make_file_executable(mDest)
 
         # start the service
-        self.mLogger.info('Start the service: %s', self.mStartServiceCmd)
-        self.run_service_cmd(self.mStartServiceCmd)
+        self.mLogger.info('Starting the service: %s', self.mStartServiceCmd)
+        self.run_shell_command(self.mStartServiceCmd)
 
-    # keep the service alive
+        # update the version to the config file
+        self.mLogger.info('Updating the current version: %s', self.mNewVersion)
+        self.uptdate_current_verion_value()
+
+
+    # update the service
+    def update_the_application(self):
+            # log the begin of the process
+            self.mLogger.info('Update is starting ...')
+
+            # compare the current version and new version
+            self.mLogger.info('Comparing the version ...')
+            if not self.get_latest_package_info(): return
+            if long(self.mCurrentVersion) == 0 or long(self.mNewVersion) == 0 or long(self.mCurrentVersion) == long(
+                self.mNewVersion): return
+
+            # check whether the file is existing or not
+            self.mLogger.info('Checking the new package: %s', self.mLocalPackageName)
+            if not self.check_file_is_existing(self.mLocalPackageName):
+                # download the new package
+                if not self.download_latest_package(): return
+
+            # stop the service
+            self.mLogger.info('Stopping the service: %s', self.mStopServiceCmd)
+            self.run_shell_command(self.mStopServiceCmd)
+
+            # copy downloaded file to dest path
+            mDest = self.mLocalInstallationPath + '/' + self.mLocalPackageName
+            self.mLogger.info('Saving file from %s to %s', self.mLocalPackageName, mDest)
+            if not self.check_file_is_existing(mDest):
+                self.copyfile_from_src_to_dest(self.mLocalPackageName, mDest)
+
+                # make it executable
+                self.mLogger.info('Making the file executable: %s', mDest)
+                self.make_file_executable(mDest)
+
+            # start the service
+            self.mLogger.info('Starting the service: %s', self.mStartServiceCmd)
+            self.run_shell_command(self.mStartServiceCmd)
+
+            # update the version to the config file
+            self.mLogger.info('Updating the current version: %s', self.mNewVersion)
+            self.uptdate_current_verion_value()
+
+    # keep the service alive // deprecate this function, rely on supervisord
     def keep_the_service_alive(self):
         mUnhealth = 0
         for mCount in range(0,self.mThreshold):
@@ -342,21 +427,18 @@ class CodeAutoDeploy(object):
 
 
     # in order to avoid to block the main  event loop, start the update task in another thread
-    def start_update_service_thread(self):
+    def start_application_handler_thread(self):
         self.mThreadStartTime = self.current_seconds_time()
-        self.mUpdateServiceThread = threading.Thread(target=self.update_the_service)
+        if self.mCurrentVersion.strip() != '':
+            self.mUpdateServiceThread = threading.Thread(target=self.update_the_application())
+        else:
+            self.mUpdateServiceThread = threading.Thread(target=self.install_the_application())
         self.mUpdateServiceThread.daemon = True
         self.mUpdateServiceThread.start()
-        self.mLogger.info('Started the App update thread: %s', self.mUpdateServiceThread.getName())
+        self.mLogger.info('Started the application handler thread: %s', self.mUpdateServiceThread.getName())
 
     # define the main logic
     def run(self):
-
-        # read the configuration
-        self.read_cofig_file_to_memory()
-
-        # initilize the logger
-        self.init_the_logger()
 
         # log the service start
         self.mLogger.info('Start the code auto deploy service, PID: %s', str(os.getpid()))
@@ -366,8 +448,8 @@ class CodeAutoDeploy(object):
             #  refresh the configuration
             self.read_cofig_file_to_memory()
 
-            # keep the service alive
-            self.keep_the_service_alive()
+            # keep the service alive ,deprecate it, rely on superivsord
+            # self.keep_the_service_alive()
 
             # check the current running thread of service update
             if self.mUpdateServiceThread:
@@ -375,17 +457,17 @@ class CodeAutoDeploy(object):
                     if self.current_seconds_time() - self.mThreadStartTime < self.mThreadTimeout:
                         self.mLogger.info('Thread: %s is alive!', self.mUpdateServiceThread.getName())
                         # hava a sleep
-                        time.sleep(5)
+                        time.sleep(10)
                         continue
                     else:
                         self.mLogger.warn('Time out for the App update thread: %s', self.mUpdateServiceThread.getName())
                         self.mUpdateServiceThread.join()
 
             # run the app update thread
-            self.start_update_service_thread()
+            self.start_application_handler_thread()
 
             # hava a sleep
-            time.sleep(20)
+            time.sleep(30)
 
 
 # start the code auto deploy tool

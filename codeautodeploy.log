@@ -1,95 +1,259 @@
-2016-08-07 18:22:23,442 - codeautodeploy - INFO - Start the code auto deploy service, PID: 59333
-2016-08-07 18:22:23,444 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:22:23,451 - codeautodeploy - INFO - Started the App update thread: Thread-1
-2016-08-07 18:22:43,457 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:22:43,458 - codeautodeploy - INFO - Thread: Thread-1 is alive!
-2016-08-07 18:22:48,465 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:22:48,465 - codeautodeploy - INFO - Thread: Thread-1 is alive!
-2016-08-07 18:22:53,472 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:22:53,472 - codeautodeploy - INFO - Thread: Thread-1 is alive!
-2016-08-07 18:22:58,477 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:22:58,478 - codeautodeploy - INFO - Thread: Thread-1 is alive!
-2016-08-07 18:23:03,483 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:23:03,483 - codeautodeploy - INFO - Thread: Thread-1 is alive!
-2016-08-07 18:23:08,486 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:23:08,486 - codeautodeploy - INFO - Thread: Thread-1 is alive!
-2016-08-07 18:23:12,164 - codeautodeploy - WARNING - Failed to fetch the new version from:: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.info
-2016-08-07 18:23:13,492 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:23:13,492 - codeautodeploy - INFO - Started the App update thread: Thread-2
-2016-08-07 18:23:33,498 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:23:33,498 - codeautodeploy - INFO - Thread: Thread-2 is alive!
-2016-08-07 18:23:38,503 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:23:38,504 - codeautodeploy - INFO - Thread: Thread-2 is alive!
-2016-08-07 18:23:43,510 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:23:43,510 - codeautodeploy - INFO - Thread: Thread-2 is alive!
-2016-08-07 18:23:46,888 - codeautodeploy - INFO - Found the new version: 20160805151633
-2016-08-07 18:23:48,514 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:23:48,515 - codeautodeploy - INFO - Started the App update thread: Thread-3
-2016-08-07 18:23:57,736 - codeautodeploy - INFO - Found the new version: 20160805151633
-2016-08-07 18:24:08,520 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:24:08,521 - codeautodeploy - INFO - Started the App update thread: Thread-4
-2016-08-07 18:24:13,007 - codeautodeploy - INFO - Found the new version: 20160805151633
-2016-08-07 18:24:28,526 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:24:28,527 - codeautodeploy - INFO - Started the App update thread: Thread-5
-2016-08-07 18:24:32,257 - codeautodeploy - INFO - Found the new version: 20160805151633
-2016-08-07 18:24:48,534 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:24:48,535 - codeautodeploy - INFO - Started the App update thread: Thread-6
-2016-08-07 18:24:52,372 - codeautodeploy - INFO - Found the new version: 20160805151633
-2016-08-07 18:25:08,541 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:25:08,541 - codeautodeploy - INFO - Started the App update thread: Thread-7
-2016-08-07 18:25:15,833 - codeautodeploy - INFO - Found the new version: 20160805151633
-2016-08-07 18:25:28,547 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:25:28,548 - codeautodeploy - INFO - Started the App update thread: Thread-8
-2016-08-07 18:25:31,891 - codeautodeploy - INFO - Found the new version: 20160805151633
-2016-08-07 18:25:48,553 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:25:48,554 - codeautodeploy - INFO - Started the App update thread: Thread-9
-2016-08-07 18:26:01,597 - codeautodeploy - INFO - Found the new version: 20160805151633
-2016-08-07 18:26:08,560 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-07 18:26:08,561 - codeautodeploy - INFO - Started the App update thread: Thread-10
-2016-08-07 18:32:21,136 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 33222333
-2016-08-07 18:37:37,527 - codeautodeploy - INFO - The file is not existing: EurekaServer-0.0.1-SNAPSHOT.jar
-2016-08-07 18:38:59,644 - codeautodeploy - INFO - Updated the MD5 to: 8388608
-2016-08-07 18:39:53,824 - codeautodeploy - INFO - Updated the MD5 to: 8388608
-2016-08-07 18:39:53,824 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 8388608
-2016-08-07 18:39:55,319 - codeautodeploy - INFO - Updated the MD5 to: 8388608
-2016-08-07 18:39:55,321 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 8388608
-2016-08-07 18:39:56,220 - codeautodeploy - INFO - Updated the MD5 to: 8388608
-2016-08-07 18:39:56,220 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 8388608
-2016-08-08 16:52:01,181 - codeautodeploy - INFO - Start the code auto deploy service, PID: 69244
-2016-08-08 16:52:01,182 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-08 16:52:01,189 - codeautodeploy - INFO - Started the App update thread: Thread-1
-2016-08-08 16:52:04,470 - codeautodeploy - INFO - Found the new version: 20160808064223
-2016-08-08 16:52:04,470 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 8388608
-2016-08-08 16:52:04,470 - codeautodeploy - INFO - Executing: ['sudo', 'service', 'eurekaserver', 'stop']
-2016-08-08 17:08:30,762 - codeautodeploy - INFO - Start the code auto deploy service, PID: 69324
-2016-08-08 17:08:30,763 - codeautodeploy - INFO - The service: eurekaserver is alive!
-2016-08-08 17:08:30,770 - codeautodeploy - INFO - Started the App update thread: Thread-1
-2016-08-09 17:11:55,214 - codeautodeploy - INFO - Start the code auto deploy service, PID: 2926
-2016-08-09 17:11:55,216 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:12:25,220 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:12:55,226 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:13:25,229 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:13:55,236 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:14:25,239 - codeautodeploy - INFO - Executing: supervisorctl stop eurekaserver
-2016-08-09 17:16:52,454 - codeautodeploy - INFO - Start the code auto deploy service, PID: 2946
-2016-08-09 17:16:52,457 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:17:22,460 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:17:52,464 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:18:22,471 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:18:52,473 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:19:22,476 - codeautodeploy - INFO - Executing: ls /tmp
-2016-08-09 17:33:11,742 - codeautodeploy - INFO - Start the code auto deploy service, PID: 3181
-2016-08-09 17:33:11,744 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:33:41,750 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:34:11,757 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:34:41,762 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:35:11,770 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:35:41,775 - codeautodeploy - INFO - Executing: ls /tmp
-2016-08-09 17:35:41,780 - codeautodeploy - INFO - Failed to execute: ls /tmp
-2016-08-09 17:36:01,784 - codeautodeploy - INFO - Executing: ls /tmp
-2016-08-09 17:36:01,788 - codeautodeploy - INFO - Failed to execute: ls /tmp
-2016-08-09 17:36:21,801 - codeautodeploy - INFO - Started the App update thread: Thread-1
-2016-08-09 17:36:25,497 - codeautodeploy - INFO - Found the new version: 20160809063606
-2016-08-09 17:36:28,115 - codeautodeploy - INFO - Package downloading... Length: 37375586 bytes Saving to EurekaServer-0.0.1-SNAPSHOT.jar
-2016-08-09 17:36:41,804 - codeautodeploy - INFO - The service: eurekaserver may be down!
-2016-08-09 17:37:11,809 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 23:41:55,821 - codeautodeploy - INFO - Start the code auto deploy service, PID: 7255
+2016-08-09 23:41:55,821 - codeautodeploy - INFO - Update is starting ...
+2016-08-09 23:41:55,821 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 0
+2016-08-09 23:41:59,779 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-09 23:41:59,779 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:41:59,779 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 41569890
+2016-08-09 23:41:59,779 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-09 23:41:59,793 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:41:59,793 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:41:59,793 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:41:59,793 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:41:59,793 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-09 23:41:59,793 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-09 23:41:59,799 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:41:59,800 - codeautodeploy - INFO - Started the App update thread: Thread-1
+2016-08-09 23:46:37,412 - codeautodeploy - INFO - Start the code auto deploy service, PID: 7282
+2016-08-09 23:46:37,412 - codeautodeploy - INFO - Update is starting ...
+2016-08-09 23:46:37,412 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 0
+2016-08-09 23:54:56,755 - codeautodeploy - INFO - Start the code auto deploy service, PID: 7415
+2016-08-09 23:54:56,756 - codeautodeploy - INFO - Update is starting ...
+2016-08-09 23:54:56,756 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 0
+2016-08-09 23:55:13,715 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-09 23:55:13,715 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:55:13,715 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 41569890
+2016-08-09 23:55:13,715 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-09 23:55:13,725 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:55:13,725 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:55:13,725 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:55:13,725 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:55:13,726 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-09 23:55:13,726 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-09 23:55:13,733 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:55:13,733 - codeautodeploy - INFO - Started the App update thread: Thread-1
+2016-08-09 23:55:55,127 - codeautodeploy - INFO - Start the code auto deploy service, PID: 7434
+2016-08-09 23:55:55,128 - codeautodeploy - INFO - Update is starting ...
+2016-08-09 23:55:55,128 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 0
+2016-08-09 23:57:09,553 - codeautodeploy - WARNING - Failed to fetch the new version from:: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.info
+2016-08-09 23:57:09,553 - codeautodeploy - INFO - Started the App update thread: Thread-1
+2016-08-09 23:57:29,557 - codeautodeploy - INFO - Start the code auto deploy service, PID: 7470
+2016-08-09 23:57:29,557 - codeautodeploy - INFO - Update is starting ...
+2016-08-09 23:57:29,558 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 0
+2016-08-09 23:57:33,644 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-09 23:57:33,644 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:57:33,644 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 41569890
+2016-08-09 23:57:33,644 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-09 23:57:33,651 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:57:33,652 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:57:33,652 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:57:33,652 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:57:33,652 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-09 23:57:33,652 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-09 23:57:33,658 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:57:33,658 - codeautodeploy - INFO - Started the App update thread: Thread-1
+2016-08-09 23:58:03,664 - codeautodeploy - INFO - Update is starting ...
+2016-08-09 23:58:03,664 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 20160809063606
+2016-08-09 23:58:05,059 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-09 23:58:05,059 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:58:05,060 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 41569890
+2016-08-09 23:58:05,060 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-09 23:58:05,067 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:58:05,068 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:58:05,068 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:58:05,068 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:58:05,068 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-09 23:58:05,068 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-09 23:58:05,075 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:58:05,076 - codeautodeploy - INFO - Started the App update thread: Thread-2
+2016-08-09 23:58:35,077 - codeautodeploy - INFO - Update is starting ...
+2016-08-09 23:58:35,078 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 20160809063606
+2016-08-09 23:58:41,150 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-09 23:58:41,150 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:58:41,150 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 41569890
+2016-08-09 23:58:41,150 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-09 23:58:41,161 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:58:41,162 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:58:41,162 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:58:41,162 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:58:41,162 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-09 23:58:41,162 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-09 23:58:41,176 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:58:41,177 - codeautodeploy - INFO - Started the App update thread: Thread-3
+2016-08-09 23:59:11,181 - codeautodeploy - INFO - Update is starting ...
+2016-08-09 23:59:11,181 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 20160809063606
+2016-08-09 23:59:14,441 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-09 23:59:14,441 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:59:14,441 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 41569890
+2016-08-09 23:59:14,441 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-09 23:59:14,449 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:59:14,449 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:59:14,449 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:59:14,450 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:59:14,450 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-09 23:59:14,450 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-09 23:59:14,456 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:59:14,457 - codeautodeploy - INFO - Started the App update thread: Thread-4
+2016-08-09 23:59:44,461 - codeautodeploy - INFO - Update is starting ...
+2016-08-09 23:59:44,462 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 20160809063606
+2016-08-09 23:59:45,850 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-09 23:59:45,850 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:59:45,851 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 41569890
+2016-08-09 23:59:45,851 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-09 23:59:45,859 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:59:45,859 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:59:45,860 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:59:45,860 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 23:59:45,860 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-09 23:59:45,860 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-09 23:59:45,866 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-09 23:59:45,867 - codeautodeploy - INFO - Started the App update thread: Thread-5
+2016-08-10 00:00:15,871 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:00:15,871 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 20160809063606
+2016-08-10 00:01:45,886 - codeautodeploy - WARNING - Failed to fetch the new version from:: https://s3.amazonaws.com/wuwesley/flashsales/EurekaServer-0.0.1-SNAPSHOT.jar.info
+2016-08-10 00:01:45,888 - codeautodeploy - INFO - Started the App update thread: Thread-6
+2016-08-10 00:03:08,838 - codeautodeploy - INFO - Start the code auto deploy service, PID: 7549
+2016-08-10 00:03:08,838 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:03:08,838 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 0
+2016-08-10 00:03:12,566 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:03:12,566 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:03:12,566 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 41569890
+2016-08-10 00:03:12,566 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-10 00:03:12,574 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-10 00:03:12,574 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:03:12,574 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:03:12,574 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:03:12,574 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-10 00:03:12,574 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-10 00:03:12,581 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-10 00:03:12,581 - codeautodeploy - INFO - Started the App update thread: Thread-1
+2016-08-10 00:03:42,586 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:03:42,586 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 20160809063606
+2016-08-10 00:03:44,461 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:03:44,461 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:03:44,462 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 41569890
+2016-08-10 00:03:44,462 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-10 00:03:44,472 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-10 00:03:44,472 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:03:44,472 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:03:44,472 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:03:44,472 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-10 00:03:44,472 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-10 00:03:44,481 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-10 00:03:44,483 - codeautodeploy - INFO - Started the App update thread: Thread-2
+2016-08-10 00:04:14,485 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:04:14,485 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 20160809063606
+2016-08-10 00:04:16,412 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:04:16,412 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:04:16,413 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 41569890
+2016-08-10 00:04:16,413 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-10 00:04:16,421 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-10 00:04:16,421 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:04:16,421 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:04:16,421 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:04:16,421 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-10 00:04:16,421 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-10 00:04:16,428 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-10 00:04:16,428 - codeautodeploy - INFO - Started the App update thread: Thread-3
+2016-08-10 00:04:46,433 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:04:46,433 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 20160809063606
+2016-08-10 00:04:49,759 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:04:49,759 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:04:49,759 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 41569890
+2016-08-10 00:04:49,759 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-10 00:04:49,768 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-10 00:04:49,769 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:04:49,769 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:04:49,769 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:04:49,769 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-10 00:04:49,769 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-10 00:04:49,776 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-10 00:04:49,776 - codeautodeploy - INFO - Started the App update thread: Thread-4
+2016-08-10 00:05:19,781 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:05:19,781 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 20160809063606
+2016-08-10 00:05:27,341 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:05:27,341 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:05:27,342 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 41569890
+2016-08-10 00:05:27,342 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-10 00:05:27,349 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-10 00:05:27,350 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:05:27,350 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:05:27,350 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:05:27,350 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-10 00:05:27,350 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-10 00:05:27,357 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-10 00:05:27,357 - codeautodeploy - INFO - Started the App update thread: Thread-5
+2016-08-10 00:05:57,360 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:05:57,360 - codeautodeploy - INFO - Comparing the version,old: 20160806015549  new: 20160809063606
+2016-08-10 00:06:02,126 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:06:02,126 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:06:02,126 - codeautodeploy - INFO - The file is existing: EurekaServer-0.0.1-SNAPSHOT.jar, md5: 41569890
+2016-08-10 00:06:02,126 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-10 00:06:02,135 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-10 00:06:02,136 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:06:02,136 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:06:02,136 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:06:02,136 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-10 00:06:02,136 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-10 00:06:02,145 - codeautodeploy - INFO - run_shell_command() is successed (return code 0) while executing ls /tmp. msg: None
+2016-08-10 00:06:02,150 - codeautodeploy - INFO - Started the App update thread: Thread-6
+2016-08-10 00:18:21,087 - codeautodeploy - INFO - Start the code auto deploy service, PID: 7831
+2016-08-10 00:18:21,087 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:18:21,087 - codeautodeploy - INFO - Comparing the version,old: 0  new: 0
+2016-08-10 00:18:24,598 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:18:24,598 - codeautodeploy - INFO - Started the App update thread: Thread-1
+2016-08-10 00:18:54,600 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:18:54,600 - codeautodeploy - INFO - Comparing the version,old: 0  new: 20160809063606
+2016-08-10 00:18:55,953 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:18:55,953 - codeautodeploy - INFO - Started the App update thread: Thread-2
+2016-08-10 00:19:25,955 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:19:25,955 - codeautodeploy - INFO - Comparing the version,old: 0  new: 20160809063606
+2016-08-10 00:19:28,456 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:19:28,456 - codeautodeploy - INFO - Started the App update thread: Thread-3
+2016-08-10 00:19:58,460 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:19:58,461 - codeautodeploy - INFO - Comparing the version,old: 0  new: 20160809063606
+2016-08-10 00:20:02,087 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:20:02,087 - codeautodeploy - INFO - Started the App update thread: Thread-4
+2016-08-10 00:20:32,094 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:20:32,094 - codeautodeploy - INFO - Comparing the version,old: 0  new: 20160809063606
+2016-08-10 00:20:35,547 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:20:35,548 - codeautodeploy - INFO - Started the App update thread: Thread-5
+2016-08-10 00:21:05,553 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:21:05,553 - codeautodeploy - INFO - Comparing the version,old: 0  new: 20160809063606
+2016-08-10 00:21:11,703 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:21:11,704 - codeautodeploy - INFO - Started the App update thread: Thread-6
+2016-08-10 00:21:26,060 - codeautodeploy - INFO - Start the code auto deploy service, PID: 7893
+2016-08-10 00:21:26,060 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:21:26,060 - codeautodeploy - INFO - Comparing the version ...
+2016-08-10 00:21:30,507 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:21:30,508 - codeautodeploy - INFO - Started the App update thread: Thread-1
+2016-08-10 00:22:44,307 - codeautodeploy - INFO - Start the code auto deploy service, PID: 7910
+2016-08-10 00:22:44,307 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:22:44,307 - codeautodeploy - INFO - Comparing the version ...
+2016-08-10 00:22:54,499 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:22:54,500 - codeautodeploy - INFO - Started the application handler thread: Thread-1
+2016-08-10 00:23:24,506 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:23:24,506 - codeautodeploy - INFO - Comparing the version ...
+2016-08-10 00:23:28,092 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:23:28,093 - codeautodeploy - INFO - Started the application handler thread: Thread-2
+2016-08-10 00:23:58,095 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:23:58,095 - codeautodeploy - INFO - Comparing the version ...
+2016-08-10 00:24:26,865 - codeautodeploy - INFO - Start the code auto deploy service, PID: 7997
+2016-08-10 00:24:26,865 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:24:26,865 - codeautodeploy - INFO - Comparing the version ...
+2016-08-10 00:24:31,499 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:24:31,500 - codeautodeploy - INFO - Started the application handler thread: Thread-1
+2016-08-10 00:24:44,907 - codeautodeploy - INFO - Start the code auto deploy service, PID: 8003
+2016-08-10 00:25:37,012 - codeautodeploy - INFO - Start the code auto deploy service, PID: 8012
+2016-08-10 00:25:47,161 - codeautodeploy - INFO - Start the code auto deploy service, PID: 8020
+2016-08-10 00:25:47,161 - codeautodeploy - INFO - Installation is starting ...
+2016-08-10 00:25:47,161 - codeautodeploy - INFO - Geting the version ...
+2016-08-10 00:25:49,995 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:25:49,995 - codeautodeploy - INFO - Check the installation package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:25:55,075 - codeautodeploy - INFO - Package downloading... Length: 37375586 bytes Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:28:58,820 - codeautodeploy - INFO - Start the code auto deploy service, PID: 8044
+2016-08-10 00:28:58,820 - codeautodeploy - INFO - Installation is starting ...
+2016-08-10 00:28:58,820 - codeautodeploy - INFO - Geting the version ...
+2016-08-10 00:29:02,904 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:29:02,904 - codeautodeploy - INFO - Check the installation package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:29:02,904 - codeautodeploy - INFO - The file is not existing: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:29:13,840 - codeautodeploy - INFO - Package downloading... Length: 37375586 bytes Saving to EurekaServer-0.0.1-SNAPSHOT.jar
