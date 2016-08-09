@@ -265,7 +265,7 @@ class CodeAutoDeploy(object):
           except OSError:
               self.mLogger.info('Failed to execute: %s' % command)
               pass  # executable not found
-          time.sleep(20)
+          time.sleep(30)
 
 
     # copy the file from src to dest, the dest should be /dir/to/file.jar
