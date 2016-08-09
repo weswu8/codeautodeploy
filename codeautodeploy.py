@@ -321,11 +321,10 @@ class CodeAutoDeploy(object):
     def keep_the_service_alive(self):
         mUnhealth = 0
         for mCount in range(0,self.mThreshold):
-            if self.check_service_status() == False : mUnhealth +=1
+            if not self.check_service_status() : mUnhealth += 1
             else : break
             time.sleep(30)
         if mUnhealth == self.mThreshold:
-            self.run_service_cmd(self.mStopServiceCmd)
             self.run_service_cmd(self.mStartServiceCmd)
 
 
