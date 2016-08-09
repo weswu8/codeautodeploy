@@ -64,3 +64,32 @@
 2016-08-08 17:08:30,762 - codeautodeploy - INFO - Start the code auto deploy service, PID: 69324
 2016-08-08 17:08:30,763 - codeautodeploy - INFO - The service: eurekaserver is alive!
 2016-08-08 17:08:30,770 - codeautodeploy - INFO - Started the App update thread: Thread-1
+2016-08-09 17:11:55,214 - codeautodeploy - INFO - Start the code auto deploy service, PID: 2926
+2016-08-09 17:11:55,216 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:12:25,220 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:12:55,226 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:13:25,229 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:13:55,236 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:14:25,239 - codeautodeploy - INFO - Executing: supervisorctl stop eurekaserver
+2016-08-09 17:16:52,454 - codeautodeploy - INFO - Start the code auto deploy service, PID: 2946
+2016-08-09 17:16:52,457 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:17:22,460 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:17:52,464 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:18:22,471 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:18:52,473 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:19:22,476 - codeautodeploy - INFO - Executing: ls /tmp
+2016-08-09 17:33:11,742 - codeautodeploy - INFO - Start the code auto deploy service, PID: 3181
+2016-08-09 17:33:11,744 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:33:41,750 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:34:11,757 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:34:41,762 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:35:11,770 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:35:41,775 - codeautodeploy - INFO - Executing: ls /tmp
+2016-08-09 17:35:41,780 - codeautodeploy - INFO - Failed to execute: ls /tmp
+2016-08-09 17:36:01,784 - codeautodeploy - INFO - Executing: ls /tmp
+2016-08-09 17:36:01,788 - codeautodeploy - INFO - Failed to execute: ls /tmp
+2016-08-09 17:36:21,801 - codeautodeploy - INFO - Started the App update thread: Thread-1
+2016-08-09 17:36:25,497 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-09 17:36:28,115 - codeautodeploy - INFO - Package downloading... Length: 37375586 bytes Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-09 17:36:41,804 - codeautodeploy - INFO - The service: eurekaserver may be down!
+2016-08-09 17:37:11,809 - codeautodeploy - INFO - The service: eurekaserver may be down!

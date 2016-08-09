@@ -62,6 +62,9 @@ class CodeAutoDeploy(object):
         # init the config handler
         self.mConfig = ConfigParser.ConfigParser()
         self.mConfig.read(self.mConfFile)
+        # start service command
+        self.mStartServiceCmd = ''
+        self.mStopServiceCmd = ''
 
         #===========the variable for the daemon process ==========#
 
@@ -98,6 +101,9 @@ class CodeAutoDeploy(object):
         self.mServicePort = self.mConfig.get(self.mSection, 'ServicePort')
         self.mCurrentVersion = self.mConfig.get(self.mSection, 'CurrentVersion')
         self.mNewPackMD5 = self.mConfig.get(self.mSection, 'NewPackMD5')
+        self.mStartServiceCmd = self.mConfig.get(self.mSection, 'StartServiceCmd')
+        self.mStopServiceCmd = self.mConfig.get(self.mSection, 'StopServiceCmd')
+
 
 
     # update the version to the config file
@@ -247,21 +253,18 @@ class CodeAutoDeploy(object):
       self.mLogger.info("The service: %s is alive!", self.mServiceName)
       return True
 
-
-    # stop the service
-    def stop_the_service(self):
-        command = ['sudo', 'service', self.mServiceName, 'stop']
-        self.mLogger.info('Executing: %s' % command)
-        subprocess.call(command, shell=False)
-        time.sleep(20)
-
-
-    # start the service
-    def start_the_service(self):
-        command = ['sudo', 'service', self.mServiceName, 'start']
-        self.mLogger.info('Executing: %s' % command)
-        subprocess.call(command, shell=False)
-        time.sleep(20)
+    # start and stop the service
+    def run_service_cmd(self, command):
+          self.mLogger.info('Executing: %s' % command)
+          try:
+              subprocess.check_call(command, shell=False)
+          except subprocess.CalledProcessError:
+              self.mLogger.info('Failed to execute: %s' % command)
+              pass  # handle errors in the called executable
+          except OSError:
+              self.mLogger.info('Failed to execute: %s' % command)
+              pass  # executable not found
+          time.sleep(20)
 
 
     # copy the file from src to dest, the dest should be /dir/to/file.jar
@@ -300,7 +303,7 @@ class CodeAutoDeploy(object):
             if not self.download_latest_package(): return
 
         # stop the service
-        self.stop_the_service()
+        self.run_service_cmd(self.mStopServiceCmd)
 
         # copy downloaded file to dest path
         mDest = self.mLocalInstallationPath+'/'+self.mLocalPackageName
@@ -311,7 +314,7 @@ class CodeAutoDeploy(object):
         self.make_file_executable(mDest)
 
         # start the service
-        self.start_the_service()
+        self.run_service_cmd(self.mStartServiceCmd)
 
     # keep the service alive
     def keep_the_service_alive(self):
@@ -321,8 +324,8 @@ class CodeAutoDeploy(object):
             else : break
             time.sleep(30)
         if mUnhealth == self.mThreshold:
-            self.stop_the_service()
-            self.start_the_service()
+            self.run_service_cmd(self.mStopServiceCmd)
+            self.run_service_cmd(self.mStartServiceCmd)
 
 
     # in order to avoid to block the main  event loop, start the update task in another thread

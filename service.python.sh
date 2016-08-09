@@ -18,8 +18,7 @@ case $1 in
     start)
         echo "Starting $SERVICE_NAME ..."
         if [ ! -f $PID_PATH_NAME ]; then
-           (cd $PATH_TO_PY  && python $PATH_TO_PY/$PY_SCRIPT /tmp 2>> /dev/null >> /dev/null &
-                        echo $! > $PID_PATH_NAME)
+           (cd $PATH_TO_PY  && python $PATH_TO_PY/$PY_SCRIPT /tmp 2>> /dev/null >> /dev/null & echo $! > $PID_PATH_NAME)
             echo "$SERVICE_NAME started ..."
         else
             echo "$SERVICE_NAME is already running ..."
@@ -29,7 +28,7 @@ case $1 in
         if [ -f $PID_PATH_NAME ]; then
             PID=$(cat $PID_PATH_NAME);
             echo "$SERVICE_NAME stoping ..."
-            kill $PID;
+            kill -9 $PID;
             echo "$SERVICE_NAME stopped ..."
             rm $PID_PATH_NAME
         else
@@ -40,12 +39,11 @@ case $1 in
         if [ -f $PID_PATH_NAME ]; then
             PID=$(cat $PID_PATH_NAME);
             echo "$SERVICE_NAME stopping ...";
-            kill $PID;
+            kill -9 $PID;
             echo "$SERVICE_NAME stopped ...";
             rm $PID_PATH_NAME
             echo "$SERVICE_NAME starting ..."
-            nohup java -jar $PATH_TO_PY /tmp 2 >> /dev/null >> /dev/null &
-                        echo $! > $PID_PATH_NAME
+            (cd $PATH_TO_PY  && python $PATH_TO_PY/$PY_SCRIPT /tmp 2>> /dev/null >> /dev/null & echo $! > $PID_PATH_NAME)
             echo "$SERVICE_NAME started ..."
         else
             echo "$SERVICE_NAME is not running ..."
