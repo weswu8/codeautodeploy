@@ -257,3 +257,34 @@
 2016-08-10 00:29:02,904 - codeautodeploy - INFO - Check the installation package: EurekaServer-0.0.1-SNAPSHOT.jar
 2016-08-10 00:29:02,904 - codeautodeploy - INFO - The file is not existing: EurekaServer-0.0.1-SNAPSHOT.jar
 2016-08-10 00:29:13,840 - codeautodeploy - INFO - Package downloading... Length: 37375586 bytes Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:33:44,414 - codeautodeploy - WARNING - Time out for package downloading... Length: 0 bytes of total 37375586 bytes Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:33:44,415 - codeautodeploy - INFO - Started the application handler thread: Thread-1
+2016-08-10 00:34:14,420 - codeautodeploy - INFO - Installation is starting ...
+2016-08-10 00:34:14,420 - codeautodeploy - INFO - Geting the version ...
+2016-08-10 00:34:15,842 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:34:15,842 - codeautodeploy - INFO - Check the installation package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:34:15,843 - codeautodeploy - INFO - The file is not existing: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:34:16,996 - codeautodeploy - INFO - Package downloading... Length: 37375586 bytes Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:51:20,023 - codeautodeploy - INFO - Start the code auto deploy service, PID: 8304
+2016-08-10 00:51:20,023 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:51:20,023 - codeautodeploy - INFO - Comparing the version ...
+2016-08-10 00:51:27,018 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:51:27,018 - codeautodeploy - INFO - Started the application handler thread: Thread-1
+2016-08-10 00:51:57,020 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:51:57,020 - codeautodeploy - INFO - Comparing the version ...
+2016-08-10 00:52:03,055 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:52:03,055 - codeautodeploy - INFO - Started the application handler thread: Thread-2
+2016-08-10 00:52:25,412 - codeautodeploy - INFO - Start the code auto deploy service, PID: 8326
+2016-08-10 00:52:25,412 - codeautodeploy - INFO - Installation is starting ...
+2016-08-10 00:52:25,412 - codeautodeploy - INFO - Geting the version ...
+2016-08-10 00:52:26,825 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:52:26,825 - codeautodeploy - INFO - Check the installation package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:52:26,826 - codeautodeploy - INFO - The file is not existing: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:52:29,726 - codeautodeploy - INFO - Package downloading... Length: 37375586 bytes Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:55:34,882 - codeautodeploy - INFO - Started the Code Auto Deploy Service, PID: 8358
+2016-08-10 00:55:34,882 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 00:55:34,882 - codeautodeploy - INFO - Comparing the version ...
+2016-08-10 00:55:36,304 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 00:55:36,304 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:55:36,304 - codeautodeploy - INFO - The file is not existing: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 00:55:37,776 - codeautodeploy - INFO - Package downloading... Length: 37375586 bytes Saving to EurekaServer-0.0.1-SNAPSHOT.jar
