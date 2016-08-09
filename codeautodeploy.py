@@ -64,6 +64,7 @@ class CodeAutoDeploy(object):
         self.mConfig.read(self.mConfFile)
         # start service command
         self.mStartServiceCmd = ''
+        # stop service command
         self.mStopServiceCmd = ''
 
         #===========the variable for the daemon process ==========#
