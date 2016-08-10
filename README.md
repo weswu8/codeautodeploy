@@ -7,6 +7,7 @@ this tools have integrated and tested with aws code pipeline and ECS.and can be 
 ****
 Feature
 ====
+#####Integrate with AWS code pipeline, publish new built package and it's version information to your s3 bucket
 #####Fetch package from aws s3 and other URL
 #####Auto insatllation and start the application
 #####Keep tract the installed version
