@@ -14,6 +14,7 @@ Due to AWS Code Deploy can not support Docker currently, so I write this tools t
 #####Keep tracting the installed version and new published version
 #####Get new version info from remote URL and compare with local record, if it is new one, download and update it
 #####Can intergrated with aws ECS, run within docker,this will short the period of CI/CD
+#####Multi threads mode, it can deliver more performance and stability
 
 How it works
 ====
