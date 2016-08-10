@@ -12,11 +12,11 @@ Feature
 
 Installation
 ====
-## Install supervisor
-### step 1
+## step 1. Install supervisor
+### get
     sudo easy_install supervisor
     (or) sudo pip install supervisor
-### step 2
+### config
     echo_supervisord_conf > /etc/supervisord.conf
     supervisord -c /etc/supervisord.conf
     sudo vi /etc/supervisord.conf,  append below content: where myapp is your appliation name
@@ -42,14 +42,15 @@ Installation
         stdout_logfile=/var/log/codeautodeploy-stdout.log
         stderr_logfile=/var/log/codeautodeploy-stderr.log
      supervisorctl reload
-## install code auto deploy
-### step 1
+****
+## step 2. install code auto deploy
+### get
     git clone https://github.com/wesley1975/codeautodeploy.git
     sudo chmod a+x codeautodeploy/codeautodeploy.py
     sudo mkdir /usr/local/codeautodeploy
     sudo cp codeautodeploy/codeautodeploy.py /usr/local/codeautodeploy/
     sudo cp codeautodeploy/codeautodeploy.cfg /usr/local/codeautodeploy/
-### step 2
+### config
     sudo vi /usr/local/codeautodeploy/codeautodeploy.cfg
         [codeautodeploy]
         currentversion = 0
