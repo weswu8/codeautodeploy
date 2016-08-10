@@ -125,15 +125,27 @@ class CodeAutoDeploy(object):
     def run_shell_command(self, command, shell=None):
         dev_null = None
         mSuccessed = False
-        try:
-            cmd_arg = command
-            p = subprocess.Popen(cmd_arg, shell=True, stdout=dev_null,
-                                 stderr=dev_null, executable=shell,
-                                 close_fds=True)
-            (stdout, stderr) = p.communicate()
-        finally:
-            if dev_null is not None:
-                dev_null.close()
+        # the retry number of the action
+        mMaxRetry = 3
+        for retryCount in range(mMaxRetry):
+            try:
+                cmd_arg = command
+                p = subprocess.Popen(cmd_arg, shell=True, stdout=dev_null,
+                                     stderr=dev_null, executable=shell,
+                                     close_fds=True)
+                (stdout, stderr) = p.communicate()
+                break
+            except:
+                if retryCount < mMaxRetry - 1:
+                    continue
+                else:
+                    self.mLogger.warn(
+                        'run_shell_command() encountered an error (return code %s) after %s times try while executing %s . msg: %s' % (retryCount,
+                        p.returncode, command, stderr))
+                    return False
+            finally:
+                if dev_null is not None:
+                    dev_null.close()
         # Handle error condition (deal with stdout being None, too)
         if p.returncode not in [0]:
             self.mLogger.warn('run_shell_command() encountered an error (return code %s) while executing %s . msg: %s' % (p.returncode, command, stderr))
@@ -369,11 +381,10 @@ class CodeAutoDeploy(object):
 
         # start the service
         self.mLogger.info('Starting the service: %s', self.mStartServiceCmd)
-        self.run_shell_command(self.mStartServiceCmd)
-
-        # update the version to the config file
-        self.mLogger.info('Updating the current version: %s', self.mNewVersion)
-        self.uptdate_current_verion_value()
+        if self.run_shell_command(self.mStartServiceCmd):
+            # update the version to the config file
+            self.mLogger.info('Updating the current version: %s', self.mNewVersion)
+            self.uptdate_current_verion_value()
 
 
     # update the service
