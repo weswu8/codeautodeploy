@@ -1,7 +1,9 @@
 Code Auto Deploy
 =====
 Periodically pull the package from the specific site and install it and update it.now this tool need the supervisor to manage the service。
-自动安装部署工具，从指定的地址下载安装包，进行安装。并且如果有新版本发布，持续进行更新.需要使用supervisor进行服务的管理。
+this tools have integrated and tested with aws code pipeline and ECS.and can be used as CI/CD tools
+自动安装部署工具，从指定的地址下载安装包，进行安装。并且如果有新版本发布，持续进行更新.需要使用supervisor进行服务的管理。本工具和aws code pipeline 和 ECS服务进行了集成。
+可以构建持续集成和持续部署的简单环境。
 ****
 Feature
 ====
@@ -9,6 +11,13 @@ Feature
 #####Auto insatllation and start the application
 #####Keep tract the installed version
 #####Get new version info from remote URL and compare with local record, if there is new one, download and update it
+#####Can intergrated with aws codepipeline
+
+How it works
+====
+If you use AWS code pipeline. you should add one invoke step in you pipeline. you can use the doPreparePackage.py, this script is a lambda script. it will publish your built
+package and version infomation to your target s3 location. and the codeautodeploy.py  will continuously fetch the new version infomation from your s3 URL,and it will
+install the package firtly and then keepping to update the appliation if there are new version published.
 
 Installation
 ====
