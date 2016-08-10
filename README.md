@@ -1,10 +1,10 @@
 Code Auto Deploy
-=====
+****
 Periodically pull the package from the specific site and install it and update it.now this tool need the supervisor to manage the service。
 this tools have integrated and tested with aws code pipeline and ECS.and can be used as CI/CD tools
 自动安装部署工具，从指定的地址下载安装包，进行安装。并且如果有新版本发布，持续进行更新.需要使用supervisor进行服务的管理。本工具和aws code pipeline 和 ECS服务进行了集成。
 可以构建持续集成和持续部署的简单环境。
-****
+====
 Feature
 ====
 Due to AWS Code Deploy can not support Docker currently, so I write this tools to demo the CI/CD process for AWS code pipeline + jenkins + manven + AWS ECS
