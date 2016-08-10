@@ -18,8 +18,8 @@ Due to AWS Code Deploy can not support Docker currently, so I write this tools t
 How it works
 ====
 If you use AWS code pipeline. you should add one invoke step in you pipeline. you can use the doPreparePackage.py, this script is a lambda script. it will publish your built
-package and version infomation to your target s3 location. and the codeautodeploy.py  will continuously fetch the new version infomation from your s3 URL,and it will
-install the package firtly and then keepping to update the appliation if there are new version published.
+package and version infomation to your target s3 location. and then the codeautodeploy.py  will continuously fetch the new version infomation from your s3 URL,
+install the package firstly and keepping to update the appliation if there is new version published.
 
 Installation
 ====
