@@ -11,7 +11,7 @@ Due to AWS Code Deploy can not support Docker currently, so I write this tools t
 #####Integrate with AWS code pipeline, publish new built package and it's version information to your s3 bucket
 #####Fetch package from aws s3 and other URL
 #####Auto insatllation and start the application
-#####Keep tract the installed version and new published version
+#####Keep tracting the installed version and new published version
 #####Get new version info from remote URL and compare with local record, if it is new one, download and update it
 #####Can intergrated with aws ECS, run within docker,this will short the period of CI/CD
 
