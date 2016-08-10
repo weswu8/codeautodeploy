@@ -288,3 +288,23 @@
 2016-08-10 00:55:36,304 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
 2016-08-10 00:55:36,304 - codeautodeploy - INFO - The file is not existing: EurekaServer-0.0.1-SNAPSHOT.jar
 2016-08-10 00:55:37,776 - codeautodeploy - INFO - Package downloading... Length: 37375586 bytes Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 09:28:27,834 - codeautodeploy - INFO - Started the Code Auto Deploy Service, PID: 8745
+2016-08-10 09:28:27,834 - codeautodeploy - INFO - Update is starting ...
+2016-08-10 09:28:27,834 - codeautodeploy - INFO - Comparing the version ...
+2016-08-10 09:28:29,487 - codeautodeploy - INFO - Found the new version: 20160809063606
+2016-08-10 09:28:29,487 - codeautodeploy - INFO - Checking the new package: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 09:28:29,487 - codeautodeploy - INFO - The file is not existing: EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 09:28:30,798 - codeautodeploy - INFO - Package downloading... Length: 37375586 bytes Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 09:28:40,855 - codeautodeploy - INFO - Download complete. Length: 37375586 bytes Saving to EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 09:28:40,862 - codeautodeploy - INFO - Updated the MD5 to: 43667042
+2016-08-10 09:28:40,862 - codeautodeploy - INFO - Stopping the service: ls /tmp
+2016-08-10 09:28:40,872 - codeautodeploy - INFO - run_shell_command() is successful (return code 0) while executing ls /tmp. msg: None
+2016-08-10 09:28:40,872 - codeautodeploy - INFO - Saving file from EurekaServer-0.0.1-SNAPSHOT.jar to /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 09:28:40,872 - codeautodeploy - INFO - The file is not existing: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 09:28:40,872 - codeautodeploy - INFO - Making the file executable: /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar
+2016-08-10 09:28:40,872 - codeautodeploy - INFO - Changed mode of /Users/wuwesley/Downloads/workspace/EurekaServer-0.0.1-SNAPSHOT.jar to 0755
+2016-08-10 09:28:40,873 - codeautodeploy - INFO - Starting the service: ls /tmp
+2016-08-10 09:28:40,879 - codeautodeploy - INFO - run_shell_command() is successful (return code 0) while executing ls /tmp. msg: None
+2016-08-10 09:28:40,879 - codeautodeploy - INFO - Updating the current version: 20160809063606
+2016-08-10 09:28:40,879 - codeautodeploy - INFO - Updated the CurrentVersion: 20160809063606
+2016-08-10 09:28:40,880 - codeautodeploy - INFO - Started the application handler thread: Thread-1

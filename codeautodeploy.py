@@ -429,7 +429,7 @@ class CodeAutoDeploy(object):
     # in order to avoid to block the main  event loop, start the update task in another thread
     def start_application_handler_thread(self):
         self.mThreadStartTime = self.current_seconds_time()
-        if self.mCurrentVersion.strip() != '' and long(self.mCurrentVersion.strip()) != 0:
+        if self.mCurrentVersion.strip() == '' or (self.mCurrentVersion.strip() != '' and long(self.mCurrentVersion.strip()) != 0):
             self.mUpdateServiceThread = threading.Thread(target=self.update_the_application())
         else:
             self.mUpdateServiceThread = threading.Thread(target=self.install_the_application())
