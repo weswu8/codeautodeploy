@@ -420,11 +420,10 @@ class CodeAutoDeploy(object):
 
             # start the service
             self.mLogger.info('Starting the service: %s', self.mStartServiceCmd)
-            self.run_shell_command(self.mStartServiceCmd)
-
-            # update the version to the config file
-            self.mLogger.info('Updating the current version: %s', self.mNewVersion)
-            self.uptdate_current_verion_value()
+            if self.run_shell_command(self.mStartServiceCmd):
+                # update the version to the config file
+                self.mLogger.info('Updating the current version: %s', self.mNewVersion)
+                self.uptdate_current_verion_value()
 
     # keep the service alive // deprecate this function, rely on supervisord
     def keep_the_service_alive(self):
