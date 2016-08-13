@@ -155,6 +155,17 @@ class CodeAutoDeploy(object):
         self.mLogger.info('run_shell_command() is successful (return code %s) while executing %s. msg: %s' % (p.returncode, command, stdout))
         return mSuccessed
 
+    # get the md5 value for a file
+    def get_file_md5(sefl,mFileName):
+        f = open(mFileName, 'rb')
+        m = hashlib.md5()
+        while True:
+            data = f.read(10240)
+            if len(data) == 0:
+                break
+            m.update(data)
+        return m.hexdigest()
+
     # update the version to the config file
     def uptdate_current_verion_value(self):
         if  long(self.mNewVersion) != 0 and long(self.mCurrentVersion) < long(self.mNewVersion):
@@ -187,9 +198,9 @@ class CodeAutoDeploy(object):
 
         info = info_fp.read()
         if info and len(info) != 0:
-            self.mNewVersion = info
+            (self.mNewVersion, self.mNewPackMD5) = info.split("|")
             info_fp.close()
-            self.mLogger.info("Found the new version: %s" % self.mNewVersion)
+            self.mLogger.info("Found the new version: %s, MD5: %s" % (self.mNewVersion, self.mNewPackMD5))
             return True
         else:
             info_fp.close()
@@ -200,8 +211,9 @@ class CodeAutoDeploy(object):
         # if file does not exists, return false
         if not os.path.isfile(mTargetFile): return False
         # if file does exist, should compare them
-        self.mNewPackMD5 = long(self.mConfig.get(self.mSection, 'newpackmd5'))
-        if long(os.path.getsize(mTargetFile)) != long(self.mNewPackMD5):
+        self.mNewPackMD5 = str(self.mConfig.get(self.mSection, 'newpackmd5'))
+        existFileMD5 = str(self.get_file_md5(mTargetFile))
+        if self.mNewPackMD5 == existFileMD5:
             self.mLogger.info("The file is not existing: %s" % mTargetFile)
             return False
         self.mLogger.info("The file is existing: %s, md5: %s" % (mTargetFile, self.mNewPackMD5))

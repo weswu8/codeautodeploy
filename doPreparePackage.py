@@ -40,14 +40,17 @@ def update_package_time(bucket, key):
     """
     update the creation time of the final package
     """
-    key = key + ".info";
+    # Get time stamp
     utc_datetime = datetime.datetime.utcnow()
     timestamp = utc_datetime.strftime("%Y%m%d%H%M%S")
-    s3r.Bucket(bucket).put_object(Key=key, Body=timestamp)
+    # Get the file MD5
+    md5 = s3.head_object(Bucket=bucket,Key=key)['ETag'][1:-1]
+    msgBody = timestamp + "|" + md5
+    infoKey = key + ".info";
     try:
-        s3r.Bucket(bucket).put_object(Key=key, Body=timestamp)
-        s3.put_object_acl(ACL='public-read', Bucket=bucket, Key=key)
-        LOGGER.info("The lastest update time:%s", timestamp)
+        s3r.Bucket(bucket).put_object(Key=infoKey, Body=msgBody)
+        s3.put_object_acl(ACL='public-read', Bucket=bucket, Key=infoKey)
+        LOGGER.info("The lastest update info:%s", msgBody)
         return True
     except ClientError as err:
         LOGGER.error("Failed to update the creation time of the final package!\n%s", err)
