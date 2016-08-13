@@ -176,7 +176,7 @@ class CodeAutoDeploy(object):
 
     # update md5 value of the new package
     def uptdate_new_package_md5(self):
-        self.mNewPackMD5 = str(os.path.getsize(self.mLocalPackageName))
+        self.mNewPackMD5 = str(self.get_file_md5(self.mLocalPackageName))
         self.change_config_by_key(self.mSection, newpackmd5=self.mNewPackMD5)
         self.mLogger.info("Updated the MD5 to: %s" % self.mNewPackMD5)
 
@@ -213,7 +213,7 @@ class CodeAutoDeploy(object):
         # if file does exist, should compare them
         self.mNewPackMD5 = str(self.mConfig.get(self.mSection, 'newpackmd5'))
         existFileMD5 = str(self.get_file_md5(mTargetFile))
-        if self.mNewPackMD5 == existFileMD5:
+        if self.mNewPackMD5 != existFileMD5:
             self.mLogger.info("The file is not existing: %s" % mTargetFile)
             return False
         self.mLogger.info("The file is existing: %s, md5: %s" % (mTargetFile, self.mNewPackMD5))
@@ -298,7 +298,7 @@ class CodeAutoDeploy(object):
         self.mLogger.info("Download complete. Length: %s bytes Saving to %s" % (data_size, dest_file))
         fp.close()
         data_file.close()
-        # updathe the file size in config file
+        # updathe the file md5 in config file
         self.uptdate_new_package_md5()
         return True
 
