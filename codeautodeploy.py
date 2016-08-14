@@ -45,6 +45,8 @@ class CodeAutoDeploy(object):
         self.mNewPackMD5 = 0
         # the new version no
         self.mNewVersion = 0
+        # the new package MD5,keep the pair with mNewVersion in memory
+        self.mNewVersonMD5 = 0
         # the global logger object
         self.mLogger = ''
         # the configuration section
@@ -198,9 +200,9 @@ class CodeAutoDeploy(object):
 
         info = info_fp.read()
         if info and len(info) != 0:
-            (self.mNewVersion, self.mNewPackMD5) = info.split("|")
+            (self.mNewVersion, self.mNewVersonMD5) = info.split("|")
             info_fp.close()
-            self.mLogger.info("Found the new version: %s, MD5: %s" % (self.mNewVersion, self.mNewPackMD5))
+            self.mLogger.info("Found the new version: %s, MD5: %s" % (self.mNewVersion, self.mNewVersonMD5))
             return True
         else:
             info_fp.close()
@@ -211,7 +213,7 @@ class CodeAutoDeploy(object):
         # if file does not exists, return false
         if not os.path.isfile(mTargetFile): return False
         # if file does exist, should compare them
-        self.mNewPackMD5 = str(self.mConfig.get(self.mSection, 'newpackmd5'))
+        if self.mNewVersonMD5 != self.mNewPackMD5 : return False
         existFileMD5 = str(self.get_file_md5(mTargetFile))
         if self.mNewPackMD5 != existFileMD5:
             self.mLogger.info("The file is not existing: %s" % mTargetFile)
@@ -467,6 +469,7 @@ class CodeAutoDeploy(object):
 
         # enter the infinite loop
         while True:
+
             #  refresh the configuration
             self.read_cofig_file_to_memory()
 
