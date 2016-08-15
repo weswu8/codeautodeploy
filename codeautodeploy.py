@@ -233,6 +233,8 @@ class CodeAutoDeploy(object):
         mMaxRetry = 3
         if self.mLocalPackageName == '': self.mLocalPackageName = self.mRemotePackageUrl.split('/')[-1]
         dest_file = self.mLocalPackageName
+        # clean the path if so
+        if os.path.exists(dest_file): os.remove(dest_file)
         try:
             data_file = urllib2.urlopen(self.mRemotePackageUrl, None, 30)
             data_size = int(dict(data_file.headers).get('content-length'))
