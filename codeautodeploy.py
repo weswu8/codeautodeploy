@@ -348,9 +348,8 @@ class CodeAutoDeploy(object):
             # Some bad symlink in the src
             self.mLogger.warn('Cannot find file %s ', src)
             return
-        if os.path.exists(dest):
-            self.mLogger.debug('File %s already exists', dest)
-            return
+        # clean file if it is existing
+        if os.path.exists(dest):os.remove(dest)
         if not os.path.exists(os.path.dirname(dest)):
             self.mLogger.info('Creating parent directories for %s', os.path.dirname(dest))
             os.makedirs(os.path.dirname(dest))
@@ -500,3 +499,4 @@ class CodeAutoDeploy(object):
 # start the code auto deploy tool
 codeAutoDeploy = CodeAutoDeploy()
 codeAutoDeploy.run()
+codeAutoDeploy.copyfile_from_src_to_dest("ShoppingCart-0.0.1-SNAPSHOT.jar", "/usr/local/shoppingcart/ShoppingCart-0.0.1-SNAPSHOT.jar")
