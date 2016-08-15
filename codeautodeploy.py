@@ -499,4 +499,3 @@ class CodeAutoDeploy(object):
 # start the code auto deploy tool
 codeAutoDeploy = CodeAutoDeploy()
 codeAutoDeploy.run()
-codeAutoDeploy.copyfile_from_src_to_dest("ShoppingCart-0.0.1-SNAPSHOT.jar", "/usr/local/shoppingcart/ShoppingCart-0.0.1-SNAPSHOT.jar")
